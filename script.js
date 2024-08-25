@@ -22,17 +22,33 @@ if (navigator.geolocation) {
     map.on('click', function (position) {
       const { lat, lng } = position.latlng;
       const pointCoords = [lat, lng];
-      L.marker(pointCoords)
-        .addTo(map)
-        .bindPopup(
-          L.popup({
-            content: 'WTF',
-            autoClose: false,
-            className: 'running-popup',
-            closeOnClick: false,
-          })
-        )
-        .openPopup();
+      form.classList.remove('hidden');
+      inputDistance.focus();
+      inputType.addEventListener('change', function () {
+        inputCadence.parentElement.classList.toggle('form__row--hidden');
+        inputElevation.parentElement.classList.toggle('form__row--hidden');
+        console.log(inputCadence.parentElement);
+        console.log(inputCadence.parentNode);
+      });
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        inputDistance.value =
+          inputDuration.value =
+          inputCadence.value =
+          inputElevation.value =
+            '';
+        L.marker(pointCoords)
+          .addTo(map)
+          .bindPopup(
+            L.popup({
+              content: 'Тренировка',
+              autoClose: false,
+              className: 'running-popup',
+              closeOnClick: false,
+            })
+          )
+          .openPopup();
+      });
     }),
       function () {
         alert('Ваша геолокация не смогла быть загружена');
