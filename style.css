@@ -121,6 +121,7 @@ a:visited {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem 2.5rem;
+  transform: translateY(0);
 
   /* Match height and activity boxes */
   height: 9.25rem;
