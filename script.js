@@ -1,4 +1,5 @@
 'use strict';
+import { nanoid } from 'https://cdn.jsdelivr.net/npm/nanoid/nanoid.js';
 
 const form = document.querySelector('.form');
 const containerWorkouts = document.querySelector('.workouts');
@@ -69,6 +70,40 @@ class App {
         })
       )
       .openPopup();
+  }
+}
+
+class Workout {
+  #id = nanoid();
+
+  constructor(distance, duration, coords, date, name) {
+    this.distance = distance;
+    this.duration = duration;
+    this.coords = coords;
+    this.date = date;
+    this.name = name;
+  }
+}
+
+class Running extends Workout {
+  constructor(distance, duration, coords, temp) {
+    super(distance, duration, coords);
+    this.temp = temp;
+    this.calculatePace();
+  }
+  calculatePace() {
+    this.pace = this.duration / this.distance;
+  }
+}
+
+class Cycling extends Workout {
+  constructor(distance, duration, coords, climb) {
+    super(distance, duration, coords);
+    this.climb = climb;
+    this.calculateSpeed();
+  }
+  calculateSpeed() {
+    this.speed = this.distance / this.duration / 60;
   }
 }
 
