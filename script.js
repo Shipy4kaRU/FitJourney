@@ -19,12 +19,23 @@ if (navigator.geolocation) {
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(map);
 
-    L.marker(coords)
-      .addTo(map)
-      .bindPopup('A pretty CSS popup.<br> Easily customizable.')
-      .openPopup();
-  }),
-    function () {
-      alert('Ваша геолокация не смогла быть загружена');
-    };
+    map.on('click', function (position) {
+      const { lat, lng } = position.latlng;
+      const pointCoords = [lat, lng];
+      L.marker(pointCoords)
+        .addTo(map)
+        .bindPopup(
+          L.popup({
+            content: 'WTF',
+            autoClose: false,
+            className: 'running-popup',
+            closeOnClick: false,
+          })
+        )
+        .openPopup();
+    }),
+      function () {
+        alert('Ваша геолокация не смогла быть загружена');
+      };
+  });
 }
