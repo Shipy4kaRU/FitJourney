@@ -1,0 +1,1 @@
+## Functionality of the app:
