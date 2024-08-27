@@ -9,6 +9,7 @@ const inputDuration = document.querySelector('.form__input--duration');
 const inputCadence = document.querySelector('.form__input--temp');
 const inputElevation = document.querySelector('.form__input--climb');
 const sidebar = document.querySelector('.sidebar');
+const btnTrash = document.querySelector('.btn--trash');
 
 class App {
   #mapEvent;
@@ -24,6 +25,7 @@ class App {
     inputType.addEventListener('change', this._toggleClimbField.bind(this));
     containerWorkouts.addEventListener('click', this._moveToWorkout.bind(this));
     this._getLocalStorageData();
+    btnTrash.addEventListener('click', this._deleteAllWorkouts.bind(this));
   }
 
   _getPosition() {
@@ -260,6 +262,11 @@ class App {
     } else {
       return;
     }
+  }
+
+  _deleteAllWorkouts() {
+    this._reset();
+    location.reload();
   }
 }
 
