@@ -41,6 +41,7 @@ a:visited {
 
 /* Боковая панель */
 .sidebar {
+  position: relative;
   flex-basis: 60rem;
   background-color: var(--color-dark--1);
   padding: 5rem 2rem 3rem 2rem;
@@ -217,4 +218,54 @@ a:visited {
 }
 .cycling-popup .leaflet-popup-content-wrapper {
   border-left: 5px solid var(--color-brand--1);
+}
+
+/* additional */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.btn--trash {
+  position: absolute;
+  display: block;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background-color: var(--color-dark--1);
+  background-image: url('./trash.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  top: 15px;
+  right: 15px;
+
+  transition: all 0.2s;
+}
+
+.btn--trash:hover {
+  top: 16px;
+  right: 16px;
+  width: 30px;
+  height: 30px;
+}
+
+.btn--trash:active {
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+}
+
+.btn-trash span {
 }
