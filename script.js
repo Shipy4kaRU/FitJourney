@@ -8,6 +8,7 @@ const inputDistance = document.querySelector('.form__input--distance');
 const inputDuration = document.querySelector('.form__input--duration');
 const inputCadence = document.querySelector('.form__input--temp');
 const inputElevation = document.querySelector('.form__input--climb');
+const sidebar = document.querySelector('.sidebar');
 
 class App {
   #mapEvent;
@@ -15,14 +16,13 @@ class App {
   #workouts = [];
 
   constructor() {
+    this.click = 0;
+    this.timeOut = 0;
     this._getPosition();
     form.addEventListener('submit', this._newWorkout.bind(this));
+    sidebar.addEventListener('click', this._hideWorkoutForm.bind(this));
     inputType.addEventListener('change', this._toggleClimbField.bind(this));
     containerWorkouts.addEventListener('click', this._moveToWorkout.bind(this));
-    containerWorkouts.addEventListener(
-      'dblclick',
-      this._deleteWorkout.bind(this)
-    );
     this._getLocalStorageData();
   }
 
@@ -99,6 +99,17 @@ class App {
     this._hideForm();
   }
   _showPoint(workout) {
+    // CUSTOM ICON OF THE POPUP
+    // const LeafIcon = L.Icon.extend({
+    //   options: {
+    //     iconSize: [64, 64],
+    //     shadowSize: [51, 37],
+    //     iconAnchor: [32, 37],
+    //     shadowAnchor: [16, 37],
+    //     popupAnchor: [0, -30],
+    //   },
+    // });
+    // const icon = new LeafIcon({ iconUrl: './popup-img.png' });
     inputDistance.value =
       inputDuration.value =
       inputCadence.value =
@@ -130,26 +141,34 @@ class App {
             <span class="workout__icon">${
               workout.type === 'running' ? '🏃' : '🚵‍♂️'
             }</span>
-            <span class="workout__value">5.0</span>
+            <span class="workout__value">${+workout.distance.toFixed(2)}</span>
             <span class="workout__unit">км</span>
           </div>
           <div class="workout__details">
             <span class="workout__icon">⏱</span>
-            <span class="workout__value">21</span>
+            <span class="workout__value">${Math.round(workout.duration)}</span>
             <span class="workout__unit">мин</span>
           </div>
           <div class="workout__details">
             <span class="workout__icon">📏</span>
-            <span class="workout__value">238</span>
+            <span class="workout__value">${
+              workout.type === 'running'
+                ? `${+workout.pace.toFixed(2)}`
+                : `${+workout.speed.toFixed(2)}`
+            }</span>
             <span class="workout__unit">${
-              workout.type === 'running' ? 'м/мин' : 'км/ч'
+              workout.type === 'running' ? 'мин/км' : 'км/ч'
             }</span>
           </div>
           <div class="workout__details">
             <span class="workout__icon">${
               workout.type === 'running' ? '⏱' : '🏔'
             }</span>
-            <span class="workout__value">340</span>
+            <span class="workout__value">${
+              workout.type === 'running'
+                ? `${Math.round(workout.temp)}`
+                : `${Math.round(workout.climb)}`
+            }</span>
             <span class="workout__unit">${
               workout.type === 'running' ? 'шаг/мин' : 'м'
             }</span>
@@ -157,20 +176,31 @@ class App {
         </li>`;
     form.insertAdjacentHTML('afterend', html);
   }
+
   _moveToWorkout(e) {
     const workoutELement = e.target.closest('.workout');
     if (!workoutELement) return;
-    const workout = this.#workouts.find(
-      item => item._id == workoutELement.dataset.id
-    );
-    workout.click();
-    console.log(this.#workouts);
-    this.#map.setView(workout.coords, 13, {
-      animate: true,
-      pan: {
-        duration: 1,
-      },
-    });
+    this.click++;
+    this.timeOut;
+    if (this.click === 1) {
+      this.timeOut = setTimeout(() => {
+        const workout = this.#workouts.find(
+          item => item._id == workoutELement.dataset.id
+        );
+        workout.click();
+        this.#map.setView(workout.coords, 13, {
+          animate: true,
+          pan: {
+            duration: 1,
+          },
+        });
+        this.click = 0;
+      }, 200);
+    } else {
+      this.click = 0;
+      clearTimeout(this.timeOut);
+      this._deleteWorkout.call(this, e);
+    }
   }
 
   _addWorkoutsToLocalStorage() {
@@ -196,9 +226,8 @@ class App {
     this.#workouts.forEach(work => this._displayWorkoutToSidebar(work));
   }
 
-  reset() {
+  _reset() {
     localStorage.removeItem('workouts');
-    location.reload();
   }
 
   _deleteWorkout(e) {
@@ -208,11 +237,29 @@ class App {
       item => item._id == workoutELement.dataset.id
     );
     this.#workouts.splice(workoutIndex, 1);
-    this._clearAll();
+    this._reset();
+    workoutELement.remove();
+    this._addWorkoutsToLocalStorage();
+    location.reload();
   }
 
-  _clearAll() {
-    form.innerHTML = ' ';
+  _deleteWorkoutPoint(workout) {}
+
+  _clearAll(elements) {
+    elements.forEach(el => el.remove());
+  }
+
+  _hideWorkoutForm(e) {
+    if (
+      e.target.classList.contains('sidebar') ||
+      e.target.classList.contains('workouts') ||
+      e.target.classList.contains('footer__copyright') ||
+      e.target.classList.contains('icon')
+    ) {
+      form.classList.add('hidden');
+    } else {
+      return;
+    }
   }
 }
 
