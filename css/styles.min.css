@@ -93,6 +93,9 @@ a:visited {
   font-size: 1.7rem;
   font-weight: 600;
   grid-column: 1/-1;
+  @media (max-width: 1279.9px) {
+    font-size: 1.4rem;
+  }
 }
 .workout__details {
   display: flex;
@@ -106,12 +109,18 @@ a:visited {
 .workout__value {
   font-size: 1.5rem;
   margin-right: 0.5rem;
+  @media (max-width: 1279.9px) {
+    font-size: 1.2rem;
+  }
 }
 .workout__unit {
   font-size: 1.1rem;
   color: var(--color-light--1);
   text-transform: uppercase;
   font-weight: 800;
+  @media (max-width: 1279.9px) {
+    font-size: 0.9rem;
+  }
 }
 .form {
   background-color: var(--color-dark--2);
