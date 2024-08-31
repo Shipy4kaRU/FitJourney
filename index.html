@@ -120,5 +120,33 @@
       </p>
     </section>
     <section class="overlay"></section>
+    <section class="info-workout">
+      <form class="form hidden">
+        <div class="form__row">
+          <label class="form__label">Тип</label>
+          <select class="form__input form__input--type">
+            <option value="running">Пробежка</option>
+            <option value="cycling">Велосипед</option>
+          </select>
+        </div>
+        <div class="form__row">
+          <label class="form__label">Расстояние</label>
+          <input class="form__input form__input--distance" placeholder="км" />
+        </div>
+        <div class="form__row">
+          <label class="form__label">Длительность</label>
+          <input class="form__input form__input--duration" placeholder="мин" />
+        </div>
+        <div class="form__row">
+          <label class="form__label">Темп</label>
+          <input class="form__input form__input--temp" placeholder="шаг/мин" />
+        </div>
+        <div class="form__row form__row--hidden">
+          <label class="form__label">Подъём</label>
+          <input class="form__input form__input--climb" placeholder="метров" />
+        </div>
+        <button class="form__btn">Изменить</button>
+      </form>
+    </section>
   </body>
 </html>
