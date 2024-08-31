@@ -337,4 +337,74 @@ a:visited {
   width: 24px;
   height: 33px;
 }
+
+.btns-sort {
+  display: flex;
+  list-style: none;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 110px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  @media (max-width: 1279.9px) {
+    width: 80px;
+  }
+}
+
+.btns-sort li {
+  margin: 0;
+  padding: 0;
+}
+
+.btn-sort {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  @media (max-width: 1279.9px) {
+    width: 33px;
+    height: 33px;
+  }
+}
+
+.btn-sort--distance {
+  background-image: url('../img/distance.png');
+  background-size: contain;
+}
+
+.btn-sort--duration {
+  background-image: url('../img/duration.png');
+  background-size: contain;
+}
+
+.btn-sort--down::after {
+  position: absolute;
+  content: ' ';
+  display: inline-block;
+  background-image: url('../img/sort-arrow.png');
+  background-size: contain;
+  width: 19px;
+  height: 19px;
+  transform: rotate(90deg);
+  bottom: -5px;
+  right: -7px;
+}
+
+.btn-sort--up::after {
+  position: absolute;
+  content: ' ';
+  display: inline-block;
+  background-image: url('../img/sort-arrow.png');
+  background-size: contain;
+  width: 19px;
+  height: 19px;
+  transform: rotate(-90deg);
+  bottom: -5px;
+  right: -5px;
+}
 /*# sourceMappingURL=styles.min.css.map */
