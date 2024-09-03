@@ -530,7 +530,79 @@ a:visited {
 }
 
 .info-workout {
+  position: absolute;
   display: none;
+  z-index: 3;
+  color: #ededed;
+  width: 50%;
+  height: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #cacaca;
+}
+
+.info-workout::after {
+  z-index: 4;
+  content: ' ';
+  position: absolute;
+  display: block;
+  width: 14px;
+  height: 2px;
+  background-color: #000;
+  right: 5px;
+  top: 10px;
+  transform: rotate(45deg);
+}
+
+.info-workout::before {
+  z-index: 4;
+  content: ' ';
+  position: absolute;
+  display: block;
+  width: 14px;
+  height: 2px;
+  background-color: #000000;
+  right: 5px;
+  top: 10px;
+  transform: rotate(-45deg);
+}
+
+.info-workout .form {
+  margin-top: 23px;
+  font-size: 1.2rem;
+  padding: 0.2rem 0.8rem;
+}
+
+.info-workout .form__label {
+  font-size: 1.3rem;
+  margin-right: 10px;
+}
+
+.info-workout .form__input {
+  font-size: 1.2rem;
+  padding: 0.2rem 0.8rem;
+}
+
+@media (min-width: 1280px) {
+  .info-workout .form__label {
+    font-size: 1.8rem;
+  }
+  .info-workout .form__input {
+    font-size: 1.5rem;
+  }
+}
+
+.btn-close-edit-Workout {
+  position: absolute;
+  z-index: 5;
+  background-color: transparent;
+  top: 5px;
+  right: 5px;
+  width: 15px;
+  height: 15px;
+  border: none;
+  cursor: pointer;
 }
 
 .btn-workout-edit {
@@ -560,5 +632,59 @@ a:visited {
   height: 21px;
   right: 10.5px;
   top: 12.5px;
+}
+
+.changes-saved-popup {
+  position: absolute;
+  width: max-content;
+  height: 40px;
+  background-color: wheat;
+  transition: top 2s;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: ani 2s forwards;
+  @media (max-width: 1279.9px) {
+    height: 20px;
+  }
+}
+
+@keyframes ani {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes aniback {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animation-back {
+  animation: aniback 1s forwards;
+}
+
+.info-workout .hidden {
+  display: none;
+}
+
+.changes-saved-popup p {
+  color: #000;
+  border-width: 500;
+  font-size: 16px;
+  text-align: center;
+  margin: 7px 10px 7px;
+
+  @media (max-width: 1279.9px) {
+    margin-top: 0;
+    font-size: 12px;
+  }
 }
 /*# sourceMappingURL=styles.min.css.map */
