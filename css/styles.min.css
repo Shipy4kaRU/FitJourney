@@ -554,14 +554,12 @@ a:visited {
   z-index: 3;
   color: #ededed;
   width: 50%;
-  height: 40%;
+  height: max-content;
   top: 50%;
+  border-radius: 0;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #cacaca;
-  @media (max-width: 650px) {
-    height: 70vmin;
-  }
 }
 
 .info-workout::after {
@@ -713,10 +711,8 @@ a:visited {
 }
 
 .city {
-  margin-top: 10px;
   padding: 5px 10px;
   background-color: var(--color-dark--2);
-  border-radius: 10%;
 }
 
 .city p {
@@ -732,10 +728,8 @@ a:visited {
 }
 
 .temp {
-  margin-top: 10px;
   padding: 5px 10px;
   background-color: var(--color-dark--2);
-  border-radius: 10%;
 }
 
 .temp p {
