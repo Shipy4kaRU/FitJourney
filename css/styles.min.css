@@ -278,14 +278,15 @@ a:visited {
     color: #000;
   }
 }
-.btn--trash {
+
+.btn-funct {
   position: absolute;
   display: block;
+  cursor: pointer;
   width: 32px;
   height: 32px;
   border: none;
   background-color: var(--color-dark--1);
-  background-image: url(../img/trash.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -293,19 +294,37 @@ a:visited {
   right: 15px;
   transition: 0.2s;
 }
-.btn--trash:hover {
+
+.btn--trash {
+  background-image: url(../img/trash.png);
+}
+
+.btn__help {
+  top: 65px;
+  background-image: url('../img/about.png');
+}
+
+.btn-funct:hover {
   top: 14.5px;
   right: 14.5px;
   width: 33px;
   height: 33px;
-  cursor: pointer;
 }
-.btn--trash:active {
+.btn-funct:active {
   top: 15.5px;
   right: 15.5px;
   width: 33px;
   height: 33px;
 }
+
+.btn__help:hover {
+  top: 64.5px;
+}
+
+.btn__help:active {
+  top: 65.5px;
+}
+
 .btn-back {
   display: none;
   position: absolute;
@@ -706,4 +725,121 @@ a:visited {
     font-size: 1.5rem;
   }
 }
+
+.help_modal {
+  display: none;
+  position: absolute;
+  z-index: 3;
+  color: #ededed;
+  width: 50%;
+  height: 60%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #cacaca;
+  background-color: var(--color-dark--2);
+  overflow-y: scroll;
+  @media (max-width: 767.9px) {
+    width: 65%;
+  }
+}
+
+.help_modal::after {
+  z-index: 4;
+  content: ' ';
+  position: absolute;
+  display: block;
+  width: 19px;
+  height: 2px;
+  background-color: #000;
+  right: 6px;
+  top: 12px;
+  transform: rotate(45deg);
+}
+
+.help_modal::before {
+  z-index: 4;
+  content: ' ';
+  position: absolute;
+  display: block;
+  width: 19px;
+  height: 2px;
+  background-color: #000000;
+  right: 6px;
+  top: 12px;
+  transform: rotate(-45deg);
+}
+
+.help_header {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 15px;
+  @media (max-width: 767.9px) {
+    font-size: 14px;
+    margin-top: 8px;
+  }
+}
+
+.help_list {
+  list-style: none;
+  margin: 10px 20px;
+}
+
+.help_el {
+  margin-bottom: 20px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  @media (max-width: 767.9px) {
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+}
+
+.help_el::before {
+  content: ' ';
+  width: 20px;
+  height: 20px;
+  margin-right: 30px;
+  display: block;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.help_trash::before {
+  background-image: url('../img/trash.png');
+}
+.help_help::before {
+  background-image: url('../img/about.png');
+}
+.help_sortDist::before {
+  background-image: url('../img/distance.png');
+}
+.help_sortDur::before {
+  background-image: url('../img/duration.png');
+}
+.help_Create::before {
+  background-color: #dbdbdb;
+}
+.help_Edit::before {
+  background-image: url('../img/pencil.png');
+}
+.help_Del::before {
+  background-color: #dbdbdb;
+}
+
+.btn-close-help {
+  z-index: 5;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: 5px;
+  top: 6px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 /*# sourceMappingURL=styles.min.css.map */
