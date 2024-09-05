@@ -37,7 +37,7 @@
     </div>
     <div class="sidebar">
       <img src="./img/icon.png" alt="icon" class="icon" />
-      <button class="btn--trash">
+      <button class="btn-funct btn--trash">
         <span class="visually-hidden">Удалить</span>
       </button>
       <ul class="btns-sort">
@@ -105,6 +105,9 @@
       <button class="btn-back">
         <span class="visually-hidden">Кнопка назад</span>
       </button>
+      <button class="btn-funct btn__help">
+        <span class="visually-hidden">Кнопка справочник</span>
+      </button>
     </div>
     <div id="map"></div>
     <section class="modal-window">
@@ -161,6 +164,46 @@
       </form>
       <div class="city hidden"></div>
       <button class="btn-close-edit-Workout">
+        <span class="visually-hidden">Закрыть модальное окно</span>
+      </button>
+    </section>
+    <section class="help_modal">
+      <p class="help_header">Основной функционал:</p>
+      <ul class="help_list">
+        <li class="help_el help_trash">
+          Корзина - нужна для полного удаления всех ваших тренировок.
+        </li>
+        <li class="help_el help_help">
+          Справочник - содержит краткую основную информацию по функционалу
+          приложения.
+        </li>
+        <li class="help_el help_sortDist">
+          Сортировка по расстоянию: при одном клике - от меньшего к большему,
+          при втором клике - становится наоборот. Третий клик вовзращает к
+          сортировке по дате.
+        </li>
+        <li class="help_el help_sortDur">
+          Сортировка по времени: способ использования аналогичен сортировке по
+          расстоянию.
+        </li>
+        <li class="help_el help_Edit">
+          Редактирование тренировки - в данном элементе содержится наиболее
+          полная информация по тренировке, а также реализована возможность
+          редактирования вашей тренировки.
+        </li>
+        <li class="help_el help_Create">
+          Создание тренировки - данное меню появляется при клике по карте и
+          исчезает при нажатии в любом пустом месте меню. После заполнения
+          данных на мобильных телефонах и планшетах необходимо нажать на кнопку
+          "ОК", на компьютерной версии кнопка отсуствует и сохранение происходит
+          при помощи нажатия клавиши клавиатуры "Enter".
+        </li>
+        <li class="help_el help_Del">
+          Удаление тренировки - чтобы удалить тренировку необходимо два раза
+          нажать на нее в списке меню.
+        </li>
+      </ul>
+      <button class="btn-close-help">
         <span class="visually-hidden">Закрыть модальное окно</span>
       </button>
     </section>
