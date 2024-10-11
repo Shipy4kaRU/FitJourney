@@ -296,12 +296,12 @@ a:visited {
 }
 
 .btn--trash {
-  background-image: url(../img/trash.png);
+  background-image: url(../../img/trash.png);
 }
 
 .btn__help {
   top: 65px;
-  background-image: url('../img/about.png');
+  background-image: url('../../img/about.png');
 }
 
 .btn-funct:hover {
@@ -332,7 +332,7 @@ a:visited {
   height: 32px;
   border: none;
   background-color: var(--color-dark--1);
-  background-image: url(../img/arrow.png);
+  background-image: url(../../img/arrow.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -396,12 +396,12 @@ a:visited {
 }
 
 .btn-sort--distance {
-  background-image: url('../img/distance.png');
+  background-image: url('../../img/distance.png');
   background-size: contain;
 }
 
 .btn-sort--duration {
-  background-image: url('../img/duration.png');
+  background-image: url('../../img/duration.png');
   background-size: contain;
 }
 
@@ -445,7 +445,7 @@ a:visited {
   position: absolute;
   content: ' ';
   display: inline-block;
-  background-image: url('../img/sort-arrow.png');
+  background-image: url('../../img/sort-arrow.png');
   background-size: contain;
   width: 19px;
   height: 19px;
@@ -462,7 +462,7 @@ a:visited {
   position: absolute;
   content: ' ';
   display: inline-block;
-  background-image: url('../img/sort-arrow.png');
+  background-image: url('../../img/sort-arrow.png');
   background-size: contain;
   width: 19px;
   height: 19px;
@@ -500,7 +500,7 @@ a:visited {
   content: ' ';
   position: absolute;
   display: block;
-  background-image: url('../img/cat.png');
+  background-image: url('../../img/cat.png');
   background-size: contain;
   background-repeat: no-repeat;
   width: 80px;
@@ -634,7 +634,7 @@ a:visited {
   height: 22px;
   background-color: transparent;
   border: none;
-  background-image: url('../img/pencil.png');
+  background-image: url('../../img/pencil.png');
   background-repeat: no-repeat;
   background-size: contain;
   right: 10px;
@@ -833,22 +833,22 @@ a:visited {
 }
 
 .help_trash::before {
-  background-image: url('../img/trash.png');
+  background-image: url('../../img/trash.png');
 }
 .help_help::before {
-  background-image: url('../img/about.png');
+  background-image: url('../../img/about.png');
 }
 .help_sortDist::before {
-  background-image: url('../img/distance.png');
+  background-image: url('../../img/distance.png');
 }
 .help_sortDur::before {
-  background-image: url('../img/duration.png');
+  background-image: url('../../img/duration.png');
 }
 .help_Create::before {
   background-color: #dbdbdb;
 }
 .help_Edit::before {
-  background-image: url('../img/pencil.png');
+  background-image: url('../../img/pencil.png');
 }
 .help_Del::before {
   background-color: #dbdbdb;
