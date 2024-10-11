@@ -540,7 +540,8 @@ a:visited {
   display: none;
   z-index: 3;
   color: #ededed;
-  width: 50%;
+  width: 80vw;
+  max-width: 800px;
   height: max-content;
   top: 50%;
   border-radius: 0;
@@ -742,17 +743,16 @@ a:visited {
   position: absolute;
   z-index: 3;
   color: #ededed;
-  width: 50%;
-  height: 60%;
+  width: 80vw;
+  height: 90vh;
+  max-width: 850px;
+  max-height: 500px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #cacaca;
   background-color: var(--color-dark--2);
   overflow-y: scroll;
-  @media (max-width: 767.9px) {
-    width: 65%;
-  }
 }
 
 .help_modal::after {
